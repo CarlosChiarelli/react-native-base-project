@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  basic-project:
+    build:
+      context: ../.
+      dockerfile: docker/Dockerfile.devcontainer
+    ports:
+      - '8081:8081'
+    volumes:
+      - .:/basic-project
+    env_file:
+      - ../.devcontainer/.env

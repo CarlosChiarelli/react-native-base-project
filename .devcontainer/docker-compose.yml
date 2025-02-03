@@ -1,0 +1,17 @@
+version: '3'
+services:
+  basic-project:
+    build:
+      context: ../.
+      dockerfile: docker/Dockerfile.devcontainer
+    ports:
+      - "8081:8081" # Porta React Native
+      # - "19000:19000" # Porta Metro Bundler
+      # - "19001:19001" # Porta Metro Bundler
+      # - "19002:19002" # Porta Metro Bundler
+    volumes:
+      - ..:/basic-project:cached
+      - extensions-cache:/home/vscode/.vscode-server
+    command: /bin/sh -c "while sleep 1000; do :; done"
+volumes:
+  extensions-cache:
